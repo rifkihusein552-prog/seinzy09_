@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no">
+
+    <title>Love Garden 360°</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        #opening {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 99999;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #ffb6d9 0%,
+                    #ff82bd 38%,
+                    #e94d91 72%,
+                    #b92767 100%
+                );
+
+            transition:
+                opacity .8s ease,
+                visibility .8s ease;
+
+        }
+
+        #opening.hide {
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+
+        }
+
+        .opening-card {
+
+            position: relative;
+
+            width: min(88vw, 390px);
+
+            padding: 45px 25px 40px;
+
+            text-align: center;
+
+            border-radius: 30px;
+
+            background:
+                rgba(255,255,255,.25);
+
+            border:
+                1px solid
+                rgba(255,255,255,.55);
+
+            box-shadow:
+                0 20px 50px
+                rgba(130,30,80,.25);
+
+            backdrop-filter:
+                blur(12px);
+
+            -webkit-backdrop-filter:
+                blur(12px);
+
+            animation:
+                openingAppear 1s ease;
+
+        }
+
+        @keyframes openingAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px)
+                    scale(.9);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+        }
+
+        .opening-heart {
+
+            font-size: 75px;
+
+            line-height: 1;
+
+            animation:
+                openingHeartbeat 1.5s
+                ease-in-out infinite;
+
+            filter:
+                drop-shadow(
+                    0 8px 12px
+                    rgba(120,20,70,.2)
+                );
+
+        }
+
+        @keyframes openingHeartbeat {
+
+            0%,
+            100% {
+
+                transform:
+                    scale(1);
+
+            }
+
+            50% {
+
+                transform:
+                    scale(1.13);
+
+            }
+
+        }
+
+        .opening-small {
+
+            margin-top: 18px;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 14px;
+
+            letter-spacing: 4px;
+
+            color:
+                rgba(110,35,70,.75);
+
+            text-transform:
+                uppercase;
+
+        }
+
+        .opening-title {
+
+            margin-top: 8px;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 38px;
+
+            color:
+                #8f315b;
+
+            text-shadow:
+                0 2px 6px
+                rgba(255,255,255,.5);
+
+        }
+
+        .opening-line {
+
+            width: 75px;
+
+            height: 1px;
+
+            margin:
+                18px auto;
+
+            background:
+                rgba(120,35,70,.4);
+
+        }
+
+        .opening-text {
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+
+            color:
+                #74334f;
+
+        }
+
+        .opening-flowers {
+
+            margin-top: 18px;
+
+            font-size: 22px;
+
+            letter-spacing: 6px;
+
+        }
+
+        .opening-button {
+
+            margin-top: 28px;
+
+            padding:
+                13px 32px;
+
+            border: none;
+
+            border-radius: 999px;
+
+            background:
+                white;
+
+            color:
+                #a43c69;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 22px
+                rgba(120,30,75,.2);
+
+            transition:
+                transform .15s ease;
+
+        }
+
+        .opening-button:active {
+
+            transform:
+                scale(.93);
+
+        }
+
+        .opening-floating-hearts {
+
+            position: absolute;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+        }
+
+        .opening-floating-hearts span {
+
+            position: absolute;
+
+            bottom: -40px;
+
+            color:
+                rgba(255,255,255,.7);
+
+            font-size: 25px;
+
+            animation:
+                openingFloat linear infinite;
+
+        }
+
+        .opening-floating-hearts span:nth-child(1) {
+
+            left: 7%;
+
+            animation-duration: 8s;
+
+            animation-delay: -2s;
+
+        }
+
+        .opening-floating-hearts span:nth-child(2) {
+
+            left: 20%;
+
+            animation-duration: 11s;
+
+            animation-delay: -6s;
+
+        }
+
+        .opening-floating-hearts span:nth-child(3) {
+
+            left: 38%;
+
+            animation-duration: 9s;
+
+            animation-delay: -4s;
+
+        }
+
+        .opening-floating-hearts span:nth-child(4) {
+
+            left: 57%;
+
+            animation-duration: 12s;
+
+            animation-delay: -8s;
+
+        }
+
+        .opening-floating-hearts span:nth-child(5) {
+
+            left: 75%;
+
+            animation-duration: 10s;
+
+            animation-delay: -3s;
+
+        }
+
+        .opening-floating-hearts span:nth-child(6) {
+
+            left: 91%;
+
+            animation-duration: 13s;
+
+            animation-delay: -9s;
+
+        }
+
+        @keyframes openingFloat {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+
+            }
+
+            15% {
+
+                opacity: .8;
+
+            }
+
+            100% {
+
+                transform:
+                    translateY(-115vh)
+                    rotate(30deg);
+
+                opacity: 0;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <audio id="bgMusic" src="lagu.mp3" autoplay loop></audio>
+
+    <div id="opening">
+
+        <div class="opening-floating-hearts">
+
+            <span>♡</span>
+            <span>♥</span>
+            <span>♡</span>
+            <span>♥</span>
+            <span>♡</span>
+            <span>♥</span>
+
+        </div>
+
+        <div class="opening-card">
+
+            <div class="opening-heart">
+                💗
+            </div>
+
+            <div class="opening-small">
+                Welcome to
+            </div>
+
+            <div class="opening-title">
+                A Place, Somewhere
+            </div>
+
+            <div class="opening-line"></div>
+
+            <div class="opening-text">
+
+                a place filled with
+                <br>
+                love, and flowers. ♡
+
+            </div>
+
+            <div class="opening-flowers">
+
+                🌷 halo bubeb 🌷
+
+            </div>
+
+            <button
+                class="opening-button"
+                onclick="enterGarden()">
+
+                Enter ♡
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="outside-love">
+
+        <span style="left:3%;animation-duration:9s;animation-delay:-2s;">♡</span>
+        <span style="left:11%;animation-duration:12s;animation-delay:-7s;">♥</span>
+        <span style="left:20%;animation-duration:10s;animation-delay:-4s;">♡</span>
+        <span style="left:30%;animation-duration:14s;animation-delay:-10s;">♥</span>
+        <span style="left:42%;animation-duration:11s;animation-delay:-3s;">♡</span>
+        <span style="left:55%;animation-duration:13s;animation-delay:-8s;">♥</span>
+        <span style="left:67%;animation-duration:10s;animation-delay:-6s;">♡</span>
+        <span style="left:79%;animation-duration:15s;animation-delay:-12s;">♥</span>
+        <span style="left:90%;animation-duration:11s;animation-delay:-5s;">♡</span>
+
+    </div>
+
+    <div class="scene" id="scene">
+
+        <canvas id="canvas"></canvas>
+
+        <div class="center-love">
+
+            <div class="center-heart">
+                💗
+            </div>
+
+        </div>
+
+        <div class="zoom-info">
+            Scroll / Pinch to zoom
+        </div>
+
+        <div class="hint">
+            Drag to explore 360°
+        </div>
+
+    </div>
+
+    <script>
+
+        const music =
+            document.getElementById("bgMusic");
+
+        music.play().catch(function() {});
+
+        function enterGarden() {
+
+            music.play().catch(function() {});
+
+            const opening =
+                document.getElementById("opening");
+
+            opening.classList.add("hide");
+
+        }
+
+    </script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
